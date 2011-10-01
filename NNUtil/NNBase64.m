@@ -44,6 +44,7 @@ static const char* kBase64SafeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno
 
 - (NSString*)encode:(NSData*)data
 {
+    if (!data || ![data length]) return nil;
     unsigned char* inBuff = (unsigned char*)[data bytes];
     int inPos = 0;
     int inLen = [data length];
@@ -89,7 +90,7 @@ static const char* kBase64SafeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno
 - (NSData*)decode:(NSString*)str;
 {
     int inLen = [str length];
-    if (inLen % 4) return nil;
+    if (inLen % 4 || !inLen) return nil;
     // Calculate number of characters after decoding
     int outLen = (inLen * 3 + 3) / 4;
     NSString* trimedStr = [str stringByRightTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];

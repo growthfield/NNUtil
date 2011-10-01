@@ -4,9 +4,9 @@
 SPEC_BEGIN(NSStringTrimmingSpec)
 
 describe(@"trimming", ^{
-    
+
     __block NSString* string = nil;
-    
+
     context(@"empty string", ^{
         beforeEach(^{
             string = @"";
@@ -19,10 +19,10 @@ describe(@"trimming", ^{
         context(@"trim right", ^{
             it(@"should do nothing", ^{
                 [[[string stringByLeftTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] should] equal:string];
-            });            
+            });
         });
     });
-    
+
     context(@"string which only consists of trimmable chars", ^{
         beforeEach(^{
             string = @"   ";
@@ -35,10 +35,10 @@ describe(@"trimming", ^{
         context(@"trim right", ^{
             it(@"should be empty", ^{
                 [[[string stringByLeftTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] should] equal:@""];
-            });            
+            });
         });
     });
-    
+
     context(@"string which contains trimmable chars at the left end", ^{
         beforeEach(^{
             string = @"  abc";
@@ -54,7 +54,7 @@ describe(@"trimming", ^{
             });
         });
     });
-    
+
     context(@"string which contains trimmable chars at the right end", ^{
         beforeEach(^{
             string = @"abc  ";
@@ -67,10 +67,10 @@ describe(@"trimming", ^{
         context(@"trim right", ^{
             it(@"should be trimed at the right end", ^{
                 [[[string stringByRightTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] should] equal:@"abc"];
-            });            
+            });
         });
     });
-    
+
     context(@"string which contains trimmable chars at the both end", ^{
         beforeEach(^{
             string = @"  abc ";
@@ -86,11 +86,11 @@ describe(@"trimming", ^{
             });
         });
     });
-    
+
     context(@"string which contains trimmable chars at the middle", ^{
         beforeEach(^{
             string = @"a  b  c";
-        });        
+        });
         context(@"trim left", ^{
             it(@"should do nothing", ^{
                 [[[string stringByLeftTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] should] equal:string];
@@ -135,7 +135,7 @@ describe(@"trimming", ^{
         });
     });
 
-    
+
 });
 
 SPEC_END

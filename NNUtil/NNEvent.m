@@ -12,7 +12,7 @@
 
 + (id)event
 {
-    return [[[self alloc] initWithValue:[NSNull null], nil] autorelease];
+    return [[[self alloc] initWithValue:nil, nil] autorelease];
 }
 
 + (id)event:(id)firstValue, ...
@@ -39,7 +39,7 @@
     if (self) {
         id val;
         NSMutableArray* array = [NSMutableArray array];
-        [array addObject:firstValue];
+        [array addObject:firstValue ? firstValue : [NSNull null]];
         while ((val = va_arg(args, id))) {
             [array addObject:val];
         }

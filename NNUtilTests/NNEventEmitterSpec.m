@@ -8,32 +8,32 @@ describe(@"NNEventEmitter", ^{
     context(@"event", ^{
         
         it(@"should be emitted without event arg", ^{
-            __block NSNumber* isCallbacked = [NSNumber numberWithBool:NO];
+            __block NSNumber* isEmitted = [NSNumber numberWithBool:NO];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
-            [em on:@"hoge" callback:^(NNEvent* event){
+            [em on:@"hoge" listener:^(NNEvent* event){
                 [event shouldBeNil];
-                isCallbacked = [NSNumber numberWithBool:YES];
+                isEmitted = [NSNumber numberWithBool:YES];
             }];
             [em emit:@"hoge"];
-            [[theObject(&isCallbacked) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
+            [[theObject(&isEmitted) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
         });
         
         it(@"should be emitted with event arg", ^{
-            __block NSNumber* isCallbacked = [NSNumber numberWithBool:NO];
+            __block NSNumber* isEmitted = [NSNumber numberWithBool:NO];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
-            [em on:@"fuga" callback:^(NNEvent* event){
+            [em on:@"fuga" listener:^(NNEvent* event){
                 [event shouldNotBeNil];
                 [[[event value:0] should] equal:@"v1"];
-                isCallbacked = [NSNumber numberWithBool:YES];
+                isEmitted = [NSNumber numberWithBool:YES];
             }];
             [em emit:@"fuga" event:[NNEvent event:@"v1", nil]];
-            [[theObject(&isCallbacked) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
+            [[theObject(&isEmitted) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
         });
 
         it(@"should be emitted twice", ^{
             __block NSNumber* count = [NSNumber numberWithInt:0];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
-            [em on:@"fuga" callback:^(NNEvent* event){
+            [em on:@"fuga" listener:^(NNEvent* event){
                 [event shouldNotBeNil];
                 count = [NSNumber numberWithInt:[count intValue] + [[event value:0] intValue]];
             }];
@@ -45,7 +45,7 @@ describe(@"NNEventEmitter", ^{
         it(@"should not be emitted twice", ^{
             __block NSNumber* count = [NSNumber numberWithInt:0];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
-            [em once:@"fuga" callback:^(NNEvent* event){
+            [em once:@"fuga" listener:^(NNEvent* event){
                 [event shouldNotBeNil];
                 count = [NSNumber numberWithInt:[count intValue] + [[event value:0] intValue]];
             }];

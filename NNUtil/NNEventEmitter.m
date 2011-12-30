@@ -33,18 +33,18 @@
     [super dealloc];
 }
 
-- (void)on:(NSString*)eventName callback:(NNEventCallback)callback
+- (void)on:(NSString*)eventName listener:(NNEventListener)listener
 {
     TRACE();
     NSMutableArray* listeners = [self listeners:self.eventListenerGroup eventName:eventName];
-    [listeners addObject:[callback copy]];
+    [listeners addObject:[listener copy]];
 }
 
-- (void)once:(NSString*)eventName callback:(NNEventCallback)callback
+- (void)once:(NSString*)eventName listener:(NNEventListener)listener
 {
     TRACE();
     NSMutableArray* listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];
-    [listeners addObject:[callback copy]];
+    [listeners addObject:[listener copy]];
 }
 
 - (void)emit:(NSString*)eventName;
@@ -76,7 +76,7 @@
     TRACE();
     if (!listeners) return;
     dispatch_queue_t queue = dispatch_get_main_queue();
-    for (NNEventCallback block in listeners) {
+    for (NNEventListener block in listeners) {
         dispatch_async(queue, ^{
             block(event);
         });

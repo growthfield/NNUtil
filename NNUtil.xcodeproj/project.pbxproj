@@ -87,6 +87,12 @@
 		40D3BA081432913400BB97C2 /* NNBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3BA061432913400BB97C2 /* NNBase64.m */; };
 		40D3BA101432946800BB97C2 /* NSString+Trimming.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3BA0E1432946800BB97C2 /* NSString+Trimming.h */; };
 		40D3BA111432946800BB97C2 /* NSString+Trimming.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3BA0F1432946800BB97C2 /* NSString+Trimming.m */; };
+		40DA09CE14ACCEA60082D0DC /* NNEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DA09CA14ACCEA60082D0DC /* NNEvent.h */; };
+		40DA09CF14ACCEA60082D0DC /* NNEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09CB14ACCEA60082D0DC /* NNEvent.m */; };
+		40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */; };
+		40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09CD14ACCEA60082D0DC /* NNEventEmitter.m */; };
+		40DA09D514ACD5080082D0DC /* NNEventSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09D314ACD3A90082D0DC /* NNEventSpec.m */; };
+		40DA09D714AD83C20082D0DC /* NNEventEmitterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +272,12 @@
 		40D3BA061432913400BB97C2 /* NNBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNBase64.m; sourceTree = "<group>"; };
 		40D3BA0E1432946800BB97C2 /* NSString+Trimming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trimming.h"; sourceTree = "<group>"; };
 		40D3BA0F1432946800BB97C2 /* NSString+Trimming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trimming.m"; sourceTree = "<group>"; };
+		40DA09CA14ACCEA60082D0DC /* NNEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNEvent.h; sourceTree = "<group>"; };
+		40DA09CB14ACCEA60082D0DC /* NNEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEvent.m; sourceTree = "<group>"; };
+		40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNEventEmitter.h; sourceTree = "<group>"; };
+		40DA09CD14ACCEA60082D0DC /* NNEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEventEmitter.m; sourceTree = "<group>"; };
+		40DA09D314ACD3A90082D0DC /* NNEventSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEventSpec.m; sourceTree = "<group>"; };
+		40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEventEmitterSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +494,10 @@
 		40D3B9D91432903100BB97C2 /* NNUtil */ = {
 			isa = PBXGroup;
 			children = (
+				40DA09CA14ACCEA60082D0DC /* NNEvent.h */,
+				40DA09CB14ACCEA60082D0DC /* NNEvent.m */,
+				40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */,
+				40DA09CD14ACCEA60082D0DC /* NNEventEmitter.m */,
 				40D3BA051432913400BB97C2 /* NNBase64.h */,
 				40D3BA061432913400BB97C2 /* NNBase64.m */,
 				40D3B9DC1432903100BB97C2 /* NNDebug.h */,
@@ -505,6 +521,8 @@
 			children = (
 				40447576143706C500C3DE5C /* NNBase64Spec.m */,
 				40447577143706C500C3DE5C /* NSString+TrimmingSpec.m */,
+				40DA09D314ACD3A90082D0DC /* NNEventSpec.m */,
+				40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */,
 				4044757A1437075200C3DE5C /* Kiwi */,
 				40D3B9F01432903100BB97C2 /* Supporting Files */,
 			);
@@ -529,6 +547,8 @@
 			files = (
 				40D3BA071432913400BB97C2 /* NNBase64.h in Headers */,
 				40D3BA101432946800BB97C2 /* NSString+Trimming.h in Headers */,
+				40DA09CE14ACCEA60082D0DC /* NNEvent.h in Headers */,
+				40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +651,8 @@
 			files = (
 				40D3BA081432913400BB97C2 /* NNBase64.m in Sources */,
 				40D3BA111432946800BB97C2 /* NSString+Trimming.m in Sources */,
+				40DA09CF14ACCEA60082D0DC /* NNEvent.m in Sources */,
+				40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40DA09D514ACD5080082D0DC /* NNEventSpec.m in Sources */,
 				40447578143706C500C3DE5C /* NNBase64Spec.m in Sources */,
 				40447579143706C500C3DE5C /* NSString+TrimmingSpec.m in Sources */,
 				404476111437075200C3DE5C /* KWAfterAllNode.m in Sources */,
@@ -707,6 +730,7 @@
 				404476511437075200C3DE5C /* NSObject+KiwiStubAdditions.m in Sources */,
 				404476521437075200C3DE5C /* NSObject+KiwiVerifierAdditions.m in Sources */,
 				404476531437075200C3DE5C /* NSValue+KiwiAdditions.m in Sources */,
+				40DA09D714AD83C20082D0DC /* NNEventEmitterSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

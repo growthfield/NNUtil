@@ -8,6 +8,7 @@
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName;
 - (void)fire:(NSMutableSet*)listeners event:(NNEvent*)event;
+- (void)emit_:(NSString*)eventName event:(NNEvent*)event;
 
 @end
 
@@ -35,30 +36,32 @@
 
 - (void)on:(NSString*)eventName listener:(NNEventListener)listener
 {
-    TRACE();
     NSMutableArray* listeners = [self listeners:self.eventListenerGroup eventName:eventName];
     [listeners addObject:[listener copy]];
 }
 
 - (void)once:(NSString*)eventName listener:(NNEventListener)listener
 {
-    TRACE();
     NSMutableArray* listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];
     [listeners addObject:[listener copy]];
 }
 
 - (void)emit:(NSString*)eventName;
 {
-    [self emit:eventName event:nil];
+    [self emit_:eventName event:nil];
 }
 
 - (void)emit:(NSString*)eventName event:(NNEvent*)event
 {
-    TRACE();
+    [self emit_:eventName event:event];
+}
+
+- (void)emit_:(NSString*)eventName event:(NNEvent*)event
+{
     [self fire:[self.eventListenerGroup objectForKey:eventName] event:event];
     NSMutableSet* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
     [self fire:onceListeners event:event];
-    [onceListeners removeAllObjects]; 
+    [onceListeners removeAllObjects];     
 }
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName
@@ -73,7 +76,6 @@
 
 - (void)fire:(NSMutableSet*)listeners event:(NNEvent*)event
 {
-    TRACE();
     if (!listeners) return;
     dispatch_queue_t queue = dispatch_get_main_queue();
     for (NNEventListener block in listeners) {
@@ -81,7 +83,6 @@
             block(event);
         });
     }
-    
 }
 
 @end

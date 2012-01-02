@@ -4,9 +4,7 @@
 SPEC_BEGIN(NSEventEmitterSpec)
 
 describe(@"NNEventEmitter", ^{
-
     context(@"event", ^{
-        
         it(@"should be emitted without event arg", ^{
             __block NSNumber* isEmitted = [NSNumber numberWithBool:NO];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
@@ -17,7 +15,6 @@ describe(@"NNEventEmitter", ^{
             [em emit:@"hoge"];
             [[theObject(&isEmitted) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
         });
-        
         it(@"should be emitted with event arg", ^{
             __block NSNumber* isEmitted = [NSNumber numberWithBool:NO];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
@@ -29,7 +26,6 @@ describe(@"NNEventEmitter", ^{
             [em emit:@"fuga" event:[NNEvent event:@"v1", nil]];
             [[theObject(&isEmitted) shouldEventuallyBeforeTimingOutAfter(3.0)] beYes];
         });
-
         it(@"should be emitted twice", ^{
             __block NSNumber* count = [NSNumber numberWithInt:0];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
@@ -41,7 +37,6 @@ describe(@"NNEventEmitter", ^{
             [em emit:@"fuga" event:[NNEvent event:[NSNumber numberWithInt:2], nil]];
             [[theObject(&count) shouldEventuallyBeforeTimingOutAfter(3.0)] equal:[NSNumber numberWithInt:3]];
         });
-        
         it(@"should not be emitted twice", ^{
             __block NSNumber* count = [NSNumber numberWithInt:0];
             NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
@@ -53,9 +48,7 @@ describe(@"NNEventEmitter", ^{
             [em emit:@"fuga" event:[NNEvent event:[NSNumber numberWithInt:2], nil]];
             [[theObject(&count) shouldEventuallyBeforeTimingOutAfter(3.0)] equal:[NSNumber numberWithInt:1]];
         });
-        
     });
-    
 });
 
 SPEC_END

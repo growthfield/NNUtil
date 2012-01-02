@@ -2,65 +2,74 @@
 
 @interface NNEvent()
 
-@property(nonatomic, retain) NSArray* values;
+@property(nonatomic, retain) NSArray* array;
 
 @end
 
 @implementation NNEvent
 
-@synthesize values = values_;
+@synthesize array = array_;
 
 + (id)event
 {
-    return [[[self alloc] initWithValue:nil, nil] autorelease];
+    return [[[self alloc] initWithValues:nil, nil] autorelease];
 }
 
 + (id)event:(id)firstValue, ...
 {
     va_list args;
     va_start(args, firstValue);
-    id obj = [[[self alloc] initWithValue:firstValue args:args] autorelease];
+    id obj = [[[self alloc] initWithValues:firstValue args:args] autorelease];
     va_end(args);
     return obj;
 }
 
-- (id)initWithValue:(id)firstValue, ...
+- (id)initWithValues:(id)firstValue, ...
 {
     va_list args;
     va_start(args, firstValue);
-    self = [self initWithValue:firstValue args:args];
+    self = [self initWithValues:firstValue args:args];
     va_end(args);
     return self;
 }
 
-- (id)initWithValue:(id)firstValue args:(va_list)args
+- (id)initWithValues:(id)firstValue args:(va_list)args
 {
     self = [super init];
     if (self) {
         id val;
-        NSMutableArray* array = [NSMutableArray array];
-        [array addObject:firstValue ? firstValue : [NSNull null]];
+        NSMutableArray* tmp = [NSMutableArray array];
         while ((val = va_arg(args, id))) {
-            [array addObject:val];
+            [tmp addObject:val];
         }
-        self.values = array;
+        if (firstValue || tmp.count > 0) {
+            NSMutableArray* array = [NSMutableArray array];
+            [array addObject:firstValue ? firstValue : [NSNull null]];
+            [array addObjectsFromArray:tmp];
+            self.array = array;
+        }
     }
     return self;
 }
 
 - (void)dealloc
 {
-    self.values = nil;
+    self.array = nil;
     [super dealloc];
 }
 
 - (id)value:(NSUInteger)index
 {
-    if (self.values.count <= index) {
+    if (self.array.count <= index) {
         return nil;
     }
-    id obj = [self.values objectAtIndex:index];
+    id obj = [self.array objectAtIndex:index];
     return [NSNull null] == obj ? nil : obj;
+}
+
+- (NSArray*)values
+{
+    return self.array;
 }
 
 @end

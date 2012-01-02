@@ -4,7 +4,6 @@
 SPEC_BEGIN(NSEventSpec)
 
 describe(@"NNEvent", ^{
-    
     context(@"event which has no values", ^{
         __block NNEvent* event = nil;
         beforeEach(^{
@@ -16,8 +15,11 @@ describe(@"NNEvent", ^{
         it(@"value1 should be nil", ^{
             [[event value:1] shouldBeNil];
         });
+        it(@"values should be nil", ^{
+            NSArray* values = [event values];
+            [values shouldBeNil];
+        });
     });
-     
     context(@"event which has 1 value", ^{
         __block NNEvent* event = nil;
         beforeEach(^{
@@ -30,8 +32,12 @@ describe(@"NNEvent", ^{
         it(@"value1 should be nil", ^{
             [[event value:1] shouldBeNil];
         });
+        it(@"values should have 1 value", ^{
+            NSArray* values = [event values];
+            [values shouldNotBeNil];
+            [[theValue(values.count) should] equal:theValue(1)];
+        });
     });
-     
     context(@"event which has 2 values", ^{
         __block NNEvent* event = nil;
         beforeEach(^{
@@ -48,6 +54,12 @@ describe(@"NNEvent", ^{
         it(@"value2 should be nil", ^{
             [[event value:2] shouldBeNil];
         });
+        it(@"values should have 2 value", ^{
+            NSArray* values = [event values];
+            [values shouldNotBeNil];
+            [[theValue(values.count) should] equal:theValue(2)];
+        });
+
     });
     
     context(@"event which has NSNull value", ^{
@@ -64,9 +76,13 @@ describe(@"NNEvent", ^{
         it(@"value2 should not be nil", ^{
             [[event value:2] shouldNotBeNil];
             [[[event value:2] should] equal:@"v3"];
-        });        
+        });
+        it(@"values should have 3 value", ^{
+            NSArray* values = [event values];
+            [values shouldNotBeNil];
+            [[theValue(values.count) should] equal:theValue(3)];
+        });
     });
-    
 });
 
 SPEC_END

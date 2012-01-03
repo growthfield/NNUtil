@@ -7,8 +7,8 @@
 @property(nonatomic, retain) NSMutableDictionary* onceEventListenerGroup;
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName;
-- (void)fire:(NSMutableSet*)listeners event:(NNEvent*)event;
-- (void)emit_:(NSString*)eventName event:(NNEvent*)event;
+- (void)fire:(NSMutableSet*)listeners args:(NNArgs*)args;
+- (void)emit_:(NSString*)eventName args:(NNArgs*)args;
 
 @end
 
@@ -37,30 +37,30 @@
 - (void)on:(NSString*)eventName listener:(NNEventListener)listener
 {
     NSMutableArray* listeners = [self listeners:self.eventListenerGroup eventName:eventName];
-    [listeners addObject:[listener copy]];
+    [listeners addObject:[[listener copy] autorelease]];
 }
 
 - (void)once:(NSString*)eventName listener:(NNEventListener)listener
 {
     NSMutableArray* listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];
-    [listeners addObject:[listener copy]];
+    [listeners addObject:[[listener copy] autorelease]];
 }
 
 - (void)emit:(NSString*)eventName;
 {
-    [self emit_:eventName event:nil];
+    [self emit_:eventName args:nil];
 }
 
-- (void)emit:(NSString*)eventName event:(NNEvent*)event
+- (void)emit:(NSString*)eventName args:(NNArgs*)args
 {
-    [self emit_:eventName event:event];
+    [self emit_:eventName args:args];
 }
 
-- (void)emit_:(NSString*)eventName event:(NNEvent*)event
+- (void)emit_:(NSString*)eventName args:(NNArgs*)args
 {
-    [self fire:[self.eventListenerGroup objectForKey:eventName] event:event];
+    [self fire:[self.eventListenerGroup objectForKey:eventName] args:args];
     NSMutableSet* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
-    [self fire:onceListeners event:event];
+    [self fire:onceListeners args:args];
     [onceListeners removeAllObjects];     
 }
 
@@ -74,13 +74,13 @@
     return list;
 }
 
-- (void)fire:(NSMutableSet*)listeners event:(NNEvent*)event
+- (void)fire:(NSMutableSet*)listeners args:(NNArgs*)args
 {
     if (!listeners) return;
     dispatch_queue_t queue = dispatch_get_main_queue();
     for (NNEventListener block in listeners) {
         dispatch_async(queue, ^{
-            block(event);
+            block(args);
         });
     }
 }

@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "NNEvent.h"
+#import "NNArgs.h"
 
-typedef void (^NNEventListener)(NNEvent* event);
+typedef void (^NNEventListener)(NNArgs* args);
 
 @interface NNEventEmitter : NSObject
 {
@@ -15,6 +15,6 @@ typedef void (^NNEventListener)(NNEvent* event);
 - (void)on:(NSString*)eventName listener:(NNEventListener)listener;
 - (void)once:(NSString*)eventName listener:(NNEventListener)listener;
 - (void)emit:(NSString*)eventName;
-- (void)emit:(NSString*)eventName event:(NNEvent*)event;
+- (void)emit:(NSString*)eventName args:(NNArgs*)event;
 
 @end

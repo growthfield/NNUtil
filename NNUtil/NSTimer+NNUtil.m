@@ -13,12 +13,12 @@ const NSTimeInterval NNTimerBlockFinish = -1;
 
 + (NSTimer*)scheduledTimerWithTimeInterval:(NSTimeInterval)seconds block:(NNTimerBlock)block
 {
-    return [self scheduledTimerWithTimeInterval:seconds target:self selector:@selector(executeBlock:) userInfo:block repeats:YES];
+    return [self scheduledTimerWithTimeInterval:seconds target:self selector:@selector(executeBlock:) userInfo:[[block copy] autorelease] repeats:YES];
 }
 
 + (NSTimer*)timerWithTimeInterval:(NSTimeInterval)seconds block:(NNTimerBlock)block
 {
-    return [self timerWithTimeInterval:seconds target:self selector:@selector(executeBlock:) userInfo:block repeats:YES];
+    return [self timerWithTimeInterval:seconds target:self selector:@selector(executeBlock:) userInfo:[[block copy] autorelease] repeats:YES];
 }
 
 + (void)executeBlock:(NSTimer*)timer

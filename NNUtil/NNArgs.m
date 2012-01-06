@@ -4,7 +4,7 @@
 
 @synthesize array = array_;
 
-+ (id)args
++ (NNArgs*)args
 {
     return [[[self alloc] init] autorelease];
 }

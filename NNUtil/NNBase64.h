@@ -7,8 +7,8 @@
     unsigned char reverseCharTable_[128];
 }
 
-+ (id)base64;
-+ (id)base64URLSafe;
++ (NNBase64*)base64;
++ (NNBase64*)base64URLSafe;
 - (id)initWithCharacters:(const char*)chars;
 - (NSString*)encode:(NSData*)data;
 - (NSData*)decode:(NSString*)str;

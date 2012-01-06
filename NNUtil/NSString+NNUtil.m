@@ -1,6 +1,6 @@
-#import "NSString+Trimming.h"
+#import "NSString+NNUtil.h"
 
-@implementation NSString(Trimming)
+@implementation NSString(NNUtil)
 
 - (NSString*)stringByLeftTrimmingCharactersInSet:(NSCharacterSet*)characterSet;
 {

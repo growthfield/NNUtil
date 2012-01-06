@@ -1,7 +1,7 @@
 #import "Kiwi.h"
-#import "NSString+Trimming.h"
+#import "NSString+NNUtil.h"
 
-SPEC_BEGIN(NSStringTrimmingSpec)
+SPEC_BEGIN(NSStringNNUtilSpec)
 
 describe(@"trimming", ^{
 

@@ -1,5 +1,5 @@
 #import "NNBase64.h"
-#import "NSString+Trimming.h"
+#import "NSString+NNUtil.h"
 
 #define PADDING_CHAR '='
 #define INVALID_DECODED_BYTE 99

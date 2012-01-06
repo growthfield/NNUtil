@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40447578143706C500C3DE5C /* NNBase64Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40447576143706C500C3DE5C /* NNBase64Spec.m */; };
-		40447579143706C500C3DE5C /* NSString+TrimmingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40447577143706C500C3DE5C /* NSString+TrimmingSpec.m */; };
+		40447579143706C500C3DE5C /* NSString+NNUtilSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40447577143706C500C3DE5C /* NSString+NNUtilSpec.m */; };
 		404476111437075200C3DE5C /* KWAfterAllNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 404475811437075200C3DE5C /* KWAfterAllNode.m */; };
 		404476121437075200C3DE5C /* KWAfterEachNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 404475831437075200C3DE5C /* KWAfterEachNode.m */; };
 		404476131437075200C3DE5C /* KWAsyncVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 404475851437075200C3DE5C /* KWAsyncVerifier.m */; };
@@ -85,14 +85,17 @@
 		40D3B9F41432903100BB97C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40D3B9F21432903100BB97C2 /* InfoPlist.strings */; };
 		40D3BA071432913400BB97C2 /* NNBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3BA051432913400BB97C2 /* NNBase64.h */; };
 		40D3BA081432913400BB97C2 /* NNBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3BA061432913400BB97C2 /* NNBase64.m */; };
-		40D3BA101432946800BB97C2 /* NSString+Trimming.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3BA0E1432946800BB97C2 /* NSString+Trimming.h */; };
-		40D3BA111432946800BB97C2 /* NSString+Trimming.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3BA0F1432946800BB97C2 /* NSString+Trimming.m */; };
+		40D3BA101432946800BB97C2 /* NSString+NNUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 40D3BA0E1432946800BB97C2 /* NSString+NNUtil.h */; };
 		40DA09CE14ACCEA60082D0DC /* NNArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DA09CA14ACCEA60082D0DC /* NNArgs.h */; };
 		40DA09CF14ACCEA60082D0DC /* NNArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09CB14ACCEA60082D0DC /* NNArgs.m */; };
 		40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */; };
 		40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09CD14ACCEA60082D0DC /* NNEventEmitter.m */; };
 		40DA09D714AD83C20082D0DC /* NNEventEmitterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */; };
+		40F754AB14B6A25B0044A17D /* NSString+NNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D3BA0F1432946800BB97C2 /* NSString+NNUtil.m */; };
+		40F754AC14B6A2A60044A17D /* NSTimer+NNUtilSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F754A914B6A0600044A17D /* NSTimer+NNUtilSpec.m */; };
 		40FAB2DE14B2EB4E00760982 /* NNArgsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FAB2DC14B2EB1900760982 /* NNArgsSpec.m */; };
+		40FAB30614B66E0000760982 /* NSTimer+NNUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */; };
+		40FAB30714B66E0000760982 /* NSTimer+NNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +110,7 @@
 
 /* Begin PBXFileReference section */
 		40447576143706C500C3DE5C /* NNBase64Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNBase64Spec.m; sourceTree = "<group>"; };
-		40447577143706C500C3DE5C /* NSString+TrimmingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TrimmingSpec.m"; sourceTree = "<group>"; };
+		40447577143706C500C3DE5C /* NSString+NNUtilSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NNUtilSpec.m"; sourceTree = "<group>"; };
 		4044757B1437075200C3DE5C /* Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kiwi.h; sourceTree = "<group>"; };
 		4044757C1437075200C3DE5C /* KiwiBlockMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiBlockMacros.h; sourceTree = "<group>"; };
 		4044757D1437075200C3DE5C /* KiwiConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiwiConfiguration.h; sourceTree = "<group>"; };
@@ -270,14 +273,17 @@
 		40D3B9F31432903100BB97C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40D3BA051432913400BB97C2 /* NNBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNBase64.h; sourceTree = "<group>"; };
 		40D3BA061432913400BB97C2 /* NNBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNBase64.m; sourceTree = "<group>"; };
-		40D3BA0E1432946800BB97C2 /* NSString+Trimming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trimming.h"; sourceTree = "<group>"; };
-		40D3BA0F1432946800BB97C2 /* NSString+Trimming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trimming.m"; sourceTree = "<group>"; };
+		40D3BA0E1432946800BB97C2 /* NSString+NNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NNUtil.h"; sourceTree = "<group>"; };
+		40D3BA0F1432946800BB97C2 /* NSString+NNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NNUtil.m"; sourceTree = "<group>"; };
 		40DA09CA14ACCEA60082D0DC /* NNArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNArgs.h; sourceTree = "<group>"; };
 		40DA09CB14ACCEA60082D0DC /* NNArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNArgs.m; sourceTree = "<group>"; };
 		40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNEventEmitter.h; sourceTree = "<group>"; };
 		40DA09CD14ACCEA60082D0DC /* NNEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEventEmitter.m; sourceTree = "<group>"; };
 		40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNEventEmitterSpec.m; sourceTree = "<group>"; };
+		40F754A914B6A0600044A17D /* NSTimer+NNUtilSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+NNUtilSpec.m"; sourceTree = "<group>"; };
 		40FAB2DC14B2EB1900760982 /* NNArgsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNArgsSpec.m; sourceTree = "<group>"; };
+		40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+NNUtil.h"; sourceTree = "<group>"; };
+		40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+NNUtil.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,8 +507,10 @@
 				40D3BA051432913400BB97C2 /* NNBase64.h */,
 				40D3BA061432913400BB97C2 /* NNBase64.m */,
 				40D3B9DC1432903100BB97C2 /* NNDebug.h */,
-				40D3BA0E1432946800BB97C2 /* NSString+Trimming.h */,
-				40D3BA0F1432946800BB97C2 /* NSString+Trimming.m */,
+				40D3BA0E1432946800BB97C2 /* NSString+NNUtil.h */,
+				40D3BA0F1432946800BB97C2 /* NSString+NNUtil.m */,
+				40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */,
+				40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */,
 				40D3B9DA1432903100BB97C2 /* Supporting Files */,
 			);
 			path = NNUtil;
@@ -521,8 +529,9 @@
 			children = (
 				40FAB2DC14B2EB1900760982 /* NNArgsSpec.m */,
 				40447576143706C500C3DE5C /* NNBase64Spec.m */,
-				40447577143706C500C3DE5C /* NSString+TrimmingSpec.m */,
+				40447577143706C500C3DE5C /* NSString+NNUtilSpec.m */,
 				40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */,
+				40F754A914B6A0600044A17D /* NSTimer+NNUtilSpec.m */,
 				4044757A1437075200C3DE5C /* Kiwi */,
 				40D3B9F01432903100BB97C2 /* Supporting Files */,
 			);
@@ -546,9 +555,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D3BA071432913400BB97C2 /* NNBase64.h in Headers */,
-				40D3BA101432946800BB97C2 /* NSString+Trimming.h in Headers */,
+				40D3BA101432946800BB97C2 /* NSString+NNUtil.h in Headers */,
 				40DA09CE14ACCEA60082D0DC /* NNArgs.h in Headers */,
 				40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */,
+				40FAB30614B66E0000760982 /* NSTimer+NNUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,10 +660,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F754AB14B6A25B0044A17D /* NSString+NNUtil.m in Sources */,
 				40D3BA081432913400BB97C2 /* NNBase64.m in Sources */,
-				40D3BA111432946800BB97C2 /* NSString+Trimming.m in Sources */,
 				40DA09CF14ACCEA60082D0DC /* NNArgs.m in Sources */,
 				40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */,
+				40FAB30714B66E0000760982 /* NSTimer+NNUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,9 +672,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F754AC14B6A2A60044A17D /* NSTimer+NNUtilSpec.m in Sources */,
 				40FAB2DE14B2EB4E00760982 /* NNArgsSpec.m in Sources */,
 				40447578143706C500C3DE5C /* NNBase64Spec.m in Sources */,
-				40447579143706C500C3DE5C /* NSString+TrimmingSpec.m in Sources */,
+				40447579143706C500C3DE5C /* NSString+NNUtilSpec.m in Sources */,
 				404476111437075200C3DE5C /* KWAfterAllNode.m in Sources */,
 				404476121437075200C3DE5C /* KWAfterEachNode.m in Sources */,
 				404476131437075200C3DE5C /* KWAsyncVerifier.m in Sources */,

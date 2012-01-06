@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface NSString(Trimming)
+@interface NSString(NNUtil)
 
 - (NSString*)stringByLeftTrimmingCharactersInSet:(NSCharacterSet*)characterSet;
 - (NSString*)stringByRightTrimmingCharactersInSet:(NSCharacterSet*)characterSet;

@@ -50,12 +50,16 @@
 
 - (void)emit:(NSString*)eventName;
 {
-    [self emit_:eventName args:nil];
+    [self emit:eventName args:nil];
 }
 
 - (void)emit:(NSString*)eventName args:(NNArgs*)args
 {
-    [self emit_:eventName args:args];
+    [self fire:[self.eventListenerGroup objectForKey:eventName] args:args];
+    NSMutableArray* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
+    [self fire:onceListeners args:args];
+    [onceListeners removeAllObjects];     
+
 }
 
 - (NSArray*)listeners:(id)eventName
@@ -73,14 +77,6 @@
     [listeners removeObject:listener];
     listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];    
     [listeners removeObject:listener];    
-}
-
-- (void)emit_:(NSString*)eventName args:(NNArgs*)args
-{
-    [self fire:[self.eventListenerGroup objectForKey:eventName] args:args];
-    NSMutableArray* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
-    [self fire:onceListeners args:args];
-    [onceListeners removeAllObjects];     
 }
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName

@@ -4,6 +4,7 @@
 SPEC_BEGIN(NSEventEmitterSpec)
 
 describe(@"NNEventEmitter", ^{
+    
     context(@"event", ^{
         it(@"should be emitted without event arg", ^{
             __block NSNumber* isEmitted = [NSNumber numberWithBool:NO];
@@ -47,6 +48,30 @@ describe(@"NNEventEmitter", ^{
             [em emit:@"fuga" args:[[NNArgs args] add:[NSNumber numberWithInt:1]]];
             [em emit:@"fuga" args:[[NNArgs args] add:[NSNumber numberWithInt:2]]];
             [[theObject(&count) shouldEventuallyBeforeTimingOutAfter(3.0)] equal:[NSNumber numberWithInt:1]];
+        });
+    });
+    
+    context(@"listener", ^{
+        it(@"should be registered duplicately", ^{
+            __block NSNumber* count = [NSNumber numberWithInt:0];                
+            NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
+            NNEventListener listener = ^(NNArgs* args) {
+                count = [NSNumber numberWithInt:[count intValue] + 1];
+            };
+            [em on:@"hoge" listener:listener];
+            [em on:@"hoge" listener:listener];
+            [em emit:@"hoge" args:nil];
+            [[theObject(&count) shouldEventuallyBeforeTimingOutAfter(3.0)] equal:[NSNumber numberWithInt:2]];            
+        });
+        
+        it(@"should be removed", ^{
+            NNEventEmitter* em = [[[NNEventEmitter alloc] init] autorelease];
+            NNEventListener listener = ^(NNArgs* args) {};
+            id blk = [[listener copy] autorelease];
+            [em on:@"hoge" listener:blk];
+            [[theValue([em listeners:@"hoge"].count) should] equal:theValue(1)];
+            [em removeLisitener:@"hoge" listener:blk];
+            [[theValue([em listeners:@"hoge"].count) should] equal:theValue(0)];            
         });
     });
 });

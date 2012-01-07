@@ -7,7 +7,7 @@
 @property(nonatomic, retain) NSMutableDictionary* onceEventListenerGroup;
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName;
-- (void)fire:(NSMutableSet*)listeners args:(NNArgs*)args;
+- (void)fire:(NSMutableArray*)listeners args:(NNArgs*)args;
 - (void)emit_:(NSString*)eventName args:(NNArgs*)args;
 
 @end
@@ -36,12 +36,14 @@
 
 - (void)on:(NSString*)eventName listener:(NNEventListener)listener
 {
+    if (!listener) return;
     NSMutableArray* listeners = [self listeners:self.eventListenerGroup eventName:eventName];
     [listeners addObject:[[listener copy] autorelease]];
 }
 
 - (void)once:(NSString*)eventName listener:(NNEventListener)listener
 {
+    if (!listener) return;
     NSMutableArray* listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];
     [listeners addObject:[[listener copy] autorelease]];
 }
@@ -56,10 +58,27 @@
     [self emit_:eventName args:args];
 }
 
+- (NSArray*)listeners:(id)eventName
+{
+    NSMutableArray* listeners = [self listeners:self.eventListenerGroup eventName:eventName];
+    NSMutableArray* onceListeners = [self listeners:self.onceEventListenerGroup eventName:eventName];
+    NSArray* array = [NSMutableArray arrayWithArray:listeners];
+    return [array arrayByAddingObjectsFromArray:onceListeners];
+}
+
+- (void)removeLisitener:(NSString*)eventName listener:(NNEventListener)listener
+{
+    NSMutableArray* listeners = nil;
+    listeners = [self listeners:self.eventListenerGroup eventName:eventName];
+    [listeners removeObject:listener];
+    listeners = [self listeners:self.onceEventListenerGroup eventName:eventName];    
+    [listeners removeObject:listener];    
+}
+
 - (void)emit_:(NSString*)eventName args:(NNArgs*)args
 {
     [self fire:[self.eventListenerGroup objectForKey:eventName] args:args];
-    NSMutableSet* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
+    NSMutableArray* onceListeners = [self.onceEventListenerGroup objectForKey:eventName];
     [self fire:onceListeners args:args];
     [onceListeners removeAllObjects];     
 }
@@ -74,7 +93,7 @@
     return list;
 }
 
-- (void)fire:(NSMutableSet*)listeners args:(NNArgs*)args
+- (void)fire:(NSMutableArray*)listeners args:(NNArgs*)args
 {
     if (!listeners) return;
     dispatch_queue_t queue = dispatch_get_main_queue();

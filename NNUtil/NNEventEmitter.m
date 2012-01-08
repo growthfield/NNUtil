@@ -8,7 +8,6 @@
 
 - (NSMutableArray*)listeners:(NSMutableDictionary*)listenerGroup eventName:(NSString*)eventName;
 - (void)fire:(NSMutableArray*)listeners args:(NNArgs*)args;
-- (void)emit_:(NSString*)eventName args:(NNArgs*)args;
 
 @end
 

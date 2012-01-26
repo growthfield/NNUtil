@@ -96,6 +96,9 @@
 		40FAB2DE14B2EB4E00760982 /* NNArgsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FAB2DC14B2EB1900760982 /* NNArgsSpec.m */; };
 		40FAB30614B66E0000760982 /* NSTimer+NNUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */; };
 		40FAB30714B66E0000760982 /* NSTimer+NNUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */; };
+		40FFD50B14D1E63E008244C6 /* NNDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FFD50914D1E63E008244C6 /* NNDispatch.h */; };
+		40FFD50C14D1E63E008244C6 /* NNDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FFD50A14D1E63E008244C6 /* NNDispatch.m */; };
+		40FFD50F14D1E9AF008244C6 /* NNDispatchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FFD50E14D1E9AF008244C6 /* NNDispatchSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +287,9 @@
 		40FAB2DC14B2EB1900760982 /* NNArgsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNArgsSpec.m; sourceTree = "<group>"; };
 		40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+NNUtil.h"; sourceTree = "<group>"; };
 		40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+NNUtil.m"; sourceTree = "<group>"; };
+		40FFD50914D1E63E008244C6 /* NNDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDispatch.h; sourceTree = "<group>"; };
+		40FFD50A14D1E63E008244C6 /* NNDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDispatch.m; sourceTree = "<group>"; };
+		40FFD50E14D1E9AF008244C6 /* NNDispatchSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDispatchSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +517,8 @@
 				40D3BA0F1432946800BB97C2 /* NSString+NNUtil.m */,
 				40FAB30414B66DFF00760982 /* NSTimer+NNUtil.h */,
 				40FAB30514B66DFF00760982 /* NSTimer+NNUtil.m */,
+				40FFD50914D1E63E008244C6 /* NNDispatch.h */,
+				40FFD50A14D1E63E008244C6 /* NNDispatch.m */,
 				40D3B9DA1432903100BB97C2 /* Supporting Files */,
 			);
 			path = NNUtil;
@@ -532,6 +540,7 @@
 				40447577143706C500C3DE5C /* NSString+NNUtilSpec.m */,
 				40DA09D614AD83C20082D0DC /* NNEventEmitterSpec.m */,
 				40F754A914B6A0600044A17D /* NSTimer+NNUtilSpec.m */,
+				40FFD50E14D1E9AF008244C6 /* NNDispatchSpec.m */,
 				4044757A1437075200C3DE5C /* Kiwi */,
 				40D3B9F01432903100BB97C2 /* Supporting Files */,
 			);
@@ -559,6 +568,7 @@
 				40DA09CE14ACCEA60082D0DC /* NNArgs.h in Headers */,
 				40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */,
 				40FAB30614B66E0000760982 /* NSTimer+NNUtil.h in Headers */,
+				40FFD50B14D1E63E008244C6 /* NNDispatch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +675,7 @@
 				40DA09CF14ACCEA60082D0DC /* NNArgs.m in Sources */,
 				40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */,
 				40FAB30714B66E0000760982 /* NSTimer+NNUtil.m in Sources */,
+				40FFD50C14D1E63E008244C6 /* NNDispatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +755,7 @@
 				404476521437075200C3DE5C /* NSObject+KiwiVerifierAdditions.m in Sources */,
 				404476531437075200C3DE5C /* NSValue+KiwiAdditions.m in Sources */,
 				40DA09D714AD83C20082D0DC /* NNEventEmitterSpec.m in Sources */,
+				40FFD50F14D1E9AF008244C6 /* NNDispatchSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

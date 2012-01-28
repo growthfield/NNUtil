@@ -99,6 +99,8 @@
 		40FFD50B14D1E63E008244C6 /* NNDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FFD50914D1E63E008244C6 /* NNDispatch.h */; };
 		40FFD50C14D1E63E008244C6 /* NNDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FFD50A14D1E63E008244C6 /* NNDispatch.m */; };
 		40FFD50F14D1E9AF008244C6 /* NNDispatchSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FFD50E14D1E9AF008244C6 /* NNDispatchSpec.m */; };
+		40FFD53E14D45FFC008244C6 /* NNReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 40FFD53C14D45FFC008244C6 /* NNReachability.h */; };
+		40FFD53F14D45FFC008244C6 /* NNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 40FFD53D14D45FFC008244C6 /* NNReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +292,8 @@
 		40FFD50914D1E63E008244C6 /* NNDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNDispatch.h; sourceTree = "<group>"; };
 		40FFD50A14D1E63E008244C6 /* NNDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDispatch.m; sourceTree = "<group>"; };
 		40FFD50E14D1E9AF008244C6 /* NNDispatchSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNDispatchSpec.m; sourceTree = "<group>"; };
+		40FFD53C14D45FFC008244C6 /* NNReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReachability.h; sourceTree = "<group>"; };
+		40FFD53D14D45FFC008244C6 /* NNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNReachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +510,8 @@
 		40D3B9D91432903100BB97C2 /* NNUtil */ = {
 			isa = PBXGroup;
 			children = (
+				40FFD53C14D45FFC008244C6 /* NNReachability.h */,
+				40FFD53D14D45FFC008244C6 /* NNReachability.m */,
 				40DA09CA14ACCEA60082D0DC /* NNArgs.h */,
 				40DA09CB14ACCEA60082D0DC /* NNArgs.m */,
 				40DA09CC14ACCEA60082D0DC /* NNEventEmitter.h */,
@@ -569,6 +575,7 @@
 				40DA09D014ACCEA60082D0DC /* NNEventEmitter.h in Headers */,
 				40FAB30614B66E0000760982 /* NSTimer+NNUtil.h in Headers */,
 				40FFD50B14D1E63E008244C6 /* NNDispatch.h in Headers */,
+				40FFD53E14D45FFC008244C6 /* NNReachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +683,7 @@
 				40DA09D114ACCEA60082D0DC /* NNEventEmitter.m in Sources */,
 				40FAB30714B66E0000760982 /* NSTimer+NNUtil.m in Sources */,
 				40FFD50C14D1E63E008244C6 /* NNDispatch.m in Sources */,
+				40FFD53F14D45FFC008244C6 /* NNReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
